@@ -7,7 +7,7 @@ def num_clubs():
                     database="postgres")
     
     cur = conn.cursor()
-    cur.execute("select count(club), club from fifa.players where contract_valid_until = 2021 group by club order by count(club) desc limit 5")
+    cur.execute("select count(club), club from fifa.players where contract_valid_until = 2021 group by club order by count(club) desc limit x")
     
     print("\n\n Formatted Results:")
     for row in cur:
