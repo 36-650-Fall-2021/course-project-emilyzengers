@@ -18,4 +18,4 @@ df3['Difference'] = df3['2020_overall'] - df3['2019_overall']
 df3 = df3.sort_values(by = 'Difference', ascending = False)
 
 # 10 most improved players
-df3.head(10)
+df3.head(x)
