@@ -7,7 +7,7 @@ def team_position_mode():
                     database="postgres")
     
     cur = conn.cursor()
-    cur.execute("select mode() within group (order by team_position) from fifa.players")
+    cur.execute("SELECT team_position, count(*) FROM fifa.players where team_position != 'SUB' and team_position != 'RES' GROUP BY team_position ORDER BY count(*) DESC LIMIT 1")
     
     print("\n\n Formatted Results:")
     for row in cur:
@@ -26,7 +26,7 @@ def nation_position_mode():
                     database="postgres")
     
     cur = conn.cursor()
-    cur.execute("select mode() within group (order by nation_position) from fifa.players")
+    cur.execute("select nation_position, count(*) from fifa.players where nation_position !='SUB' and nation_position != 'RES' group by nation_position order by count(*) desc limit 3")
     
     print("\n\n Formatted Results:")
     for row in cur:
