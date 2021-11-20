@@ -15,7 +15,7 @@ In this repository, you'll work on your homework assignments and submit your com
 For several of the variables in players_20.csv, we assume variable character type. Date of birth is documented as "date" data type. Anything that isn't varchar(n) or date is "integer" or "text" data type. 
 
 ### Fifa Table Infrastructure 
-Below is am image of some of the columns and data types for the Player20 table in my Fifa schema.
+Below is a partial summary of my Fifa table infrastructure. 
 ![image](https://user-images.githubusercontent.com/69126128/139150872-9087639f-98c6-48ba-976e-d44bdc56eac3.png)
 
 With regards to creating the tables for Player20 and Player 19, the following sql queries were used.<br />
@@ -225,4 +225,16 @@ alter table players20
 
 The port number for my postgres database is 5432. 
 
-After you import the data into the postgres tables, you can run the entire Python script in the "src" folder. For questions 1, 2, 3, you can input any value into the function's argument (for question 3, z must be greater than or equal to 5). 
+After you import the data into the postgres tables, you can run the entire Python script in the "src" folder. For questions 1, 2, 3, you can input any value into the function's argument (for question 3, z must be greater than or equal to 5).<br /> 
+
+Refer to the "test" folder to see what unit tests I ran for each of the the 5 Python functions I created. In the following paragraphs, I describe a summary of all the test scenarios I went through for each function.<br /> 
+
+For function 1, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. I also assessed to see if the first element was the right element and made sure that the first element didn't return the wrong element. Lastly, I checked to make sure my error message inside my function was working properly.<br />
+
+For function 2, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. I also assessed to see if the first element was the right element and made sure that the first element didnt' return the second element. Additionally, I assessed that the ordering of the elements was correct. Lastly, I checked to make sure my error message inside my function was working properly.
+
+For function 3, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. Then I assessed to see whether the error messages inside my function were working correctly. I also checked to see that the elements that are returned were in the right order. 
+
+For function 4, I had two Python functions, so i developed 2 unit test functions that are essentially the same assertion statement. First, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. Lastly, I assessed that the first element was returning the right thing. 
+
+For function 5, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. Lastly, I assessed that the first element was returning the right thing. 
