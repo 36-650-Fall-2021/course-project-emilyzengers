@@ -218,6 +218,11 @@ copy players
 from 'C:/Users/emily/Documents/CMU MSP/stat 650/final project/data/players_19.csv'
 delimiter ',' csv header;
 
+If there are issues with the tables being in the wrong schema i.e. not in the fifa schema, you can use the following query.<br />
+
+alter table players20
+	set schema fifa;
+
 The port number for my postgres database is 5432. 
 
 After you import the data into the postgres tables, you can run the entire Python script in the "src" folder. For questions 1, 2, 3, you can input any value into the function's argument (for question 3, z must be greater than or equal to 5). 
