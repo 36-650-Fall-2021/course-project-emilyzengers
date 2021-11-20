@@ -18,7 +18,7 @@ For several of the variables in players_20.csv, we assume variable character typ
 Below is am image of some of the columns and data types for the Player20 table in my Fifa schema.
 ![image](https://user-images.githubusercontent.com/69126128/139150872-9087639f-98c6-48ba-976e-d44bdc56eac3.png)
 
-With regards to creating the tables for Player20 and Player 19, the following sql queries were used.\
+With regards to creating the tables for Player20 and Player 19, the following sql queries were used.<br />
 
 CREATE TABLE fifa.players20 (
 	sofifa_id integer,
@@ -208,7 +208,7 @@ CREATE TABLE fifa.players19 (
 	goalkeeping_reflexes text
 );
 
-After creating the tables, import the csv datas into the respective tables with the following queries. Make sure you set your permissions for these folders as "everyone". The csv files are in the "data" folder.\
+After creating the tables, import the csv datas into the respective tables with the following queries. Make sure you set your permissions for these folders as "everyone". The csv files are in the "data" folder.<br />
 
 copy players 
 from 'C:/Users/emily/Documents/CMU MSP/stat 650/final project/data/players_20.csv'
