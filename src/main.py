@@ -4,49 +4,67 @@
 # Don't forget to add data folder for your data
 # Replace the following line with real application code
 
+# import libraries
+
 import psycopg2
 
 import pandas as pd
 
 # question 1
+# List the x players who achieved highest improvement across all skillsets
 
-# select player name, 34 columns of skills, and overall with sql query 
-# for loop to copy all 36 columns into an array - link 
-# for loop to take the average of 34 columns for each row and compare it to the overall column 
-# for loop to find the difference between overall and average
-# sort function - sort list of lists (data structures lecture)
-# display results with player name 
+# create connection to postgres database and get data from players20 and players19 tables
+conn = psycopg2.connect(host="localhost", 
+                    port="5432", 
+                    user="postgres", 
+                    password="114645", 
+                    database="postgres")
+sql1 = "select * from fifa.players20;"
+sql2 = "select * from fifa.players19;"
+players20 = pd.read_sql_query(sql1, conn)
+players19 = pd.read_sql_query(sql2, conn)
+conn = None
 
-# conn = psycopg2.connect("host='{}' port={} dbname='{}' user={} password={}".format(host, port, dbname, username, pwd))
-# sql = "select count(*) from table;"
-# dat = pd.read_sql_query(sql, conn)
-# conn = None
+def most_improvement(x):
+    # check to make sure x is an integer
+    if isinstance(x, int) is not True:
+        return("Must input integer")
+    
+    # select long name, overall, and sofifa (unique) id from players20
+    # select sofifa id and overall from players19
+    df1 = players20[["sofifa_id", "long_name", "overall"]]
+    df2 = players19[["sofifa_id", "overall"]]
+    
+    # merge dataframes on sofifa id so the same players are being compared
+    common = df1.merge(df2, on = ["sofifa_id"])
 
-# read in data
-players20 = pd.read_csv("c:/Users/emily/Documents/CMU MSP/stat 650/final project/data/players_20.csv")
-players19 = pd.read_csv("c:/Users/emily/Documents/CMU MSP/stat 650/final project/data/players_19.csv")
+    # rename columns
+    df3 = common.rename(columns={'sofifa_id': 'Sofifa ID', 'overall_x': '2020 Overall', 'overall_y': '2019 Overall', 'long_name': 'Name'})
 
-# select long name and overall columns
-df1 = players20[["long_name", "overall"]]
-df2 = players19[["long_name", "overall"]]
+    # add in difference column
+    df3['Difference'] = df3['2020 Overall'] - df3['2019 Overall']
 
-# merge dataframes so the same players are being displayed
-common = df1.merge(df2, on = ["long_name"])
+    # sort largest to smallest difference
+    df3 = df3.sort_values(by = 'Difference', ascending = False)
 
-# rename columns
-df3 = common.rename(columns={'overall_x': '2020_overall', 'overall_y': '2019_overall', 'long_name': 'Name'})
+    df3 = df3.reindex(columns=['Sofifa ID', 'Name', '2019 Overall', '2020 Overall', 'Difference'])
+    
+    df3 = df3.head(x)
+    
+    # convert dataframe to list
+    most_improved = df3.values.tolist()
+    return most_improved
 
-# add in difference column
-df3['Difference'] = df3['2020_overall'] - df3['2019_overall']
-
-# sort largest to smallest difference
-df3 = df3.sort_values(by = 'Difference', ascending = False)
-
-# 10 most improved players
-df3.head(10)
+most_improvement(10)
 
 # question 2
-def num_clubs():
+# What are the y clubs that have largest number of players with contracts ending in 2021?
+
+def num_clubs(y):
+    # check to make sure y is an integer
+    if isinstance(y, int) is not True:
+        return("Must input integer")
+    
     conn = psycopg2.connect(host="localhost", 
                     port="5432", 
                     user="postgres", 
@@ -54,19 +72,29 @@ def num_clubs():
                     database="postgres")
     
     cur = conn.cursor()
-    cur.execute("select count(club), club from fifa.players where contract_valid_until = 2021 group by club order by count(club) desc limit 5")
+    cur.execute("select count(club), club from fifa.players20 where contract_valid_until = 2021 group by club order by count(club) desc")
     
-    print("\n\n Formatted Results:")
+    # create empty list 
+    list = []
     for row in cur:
-        print (row)
+        list.append(row)
+    
+    # return list of y clubs that have largest number of players with contracts ending in 2021
+    return list[:y]
 
     cur.close()
     conn.close()
 
-num_clubs()
+num_clubs(10)
 
 # question 3
-def num_clubs_lim():
+# List the z clubs with largest number of players in the dataset where z >= 5
+
+def num_clubs_lim(z):
+    # z has to be at least 5, z >=5
+    if z < 5:
+        return "The number of clubs to display should at least be 5"
+    
     conn = psycopg2.connect(host="localhost", 
                     port="5432", 
                     user="postgres", 
@@ -74,18 +102,24 @@ def num_clubs_lim():
                     database="postgres")
     
     cur = conn.cursor()
-    cur.execute("select count(club), club from fifa.players where contract_valid_until = 2021 group by club order by count(club) desc offset 5")
+    cur.execute("select count(club) as number_of_players, club from fifa.players20 group by club order by count(club) desc")
     
-    print("\n\n Formatted Results:")
+    # create empty list 
+    list = []
     for row in cur:
-        print (row)
+        list.append(row)
+        
+    # return list of z clubs with largest number of players in the dataset where z >= 5
+    return list[:z]
 
     cur.close()
     conn.close()
 
-num_clubs_lim()
+num_clubs_lim(5)
 
 # question 4
+# What is the most popular nation_position and team_position in the dataset? (list the most popular for each)
+
 def team_position_mode():
     conn = psycopg2.connect(host="localhost", 
                     port="5432", 
@@ -94,17 +128,22 @@ def team_position_mode():
                     database="postgres")
     
     cur = conn.cursor()
-    cur.execute("SELECT team_position, count(*) FROM fifa.players where team_position != 'SUB' and team_position != 'RES' GROUP BY team_position ORDER BY count(*) DESC LIMIT 1")
+    cur.execute("SELECT team_position, count(*) FROM fifa.players20 where team_position != 'SUB' and team_position != 'RES' GROUP BY team_position ORDER BY count(*) DESC LIMIT 1")
     
-    print("\n\n Formatted Results:")
+    # create empty list 
+    list = []
     for row in cur:
-        print (row)
+        list.append(row)
+        
+    # return list of most popular team position that doesn't include substitute or reserve
+    return list
 
     cur.close()
     conn.close()
 
 team_position_mode()
 
+# question 4 continued
 def nation_position_mode():
     conn = psycopg2.connect(host="localhost", 
                     port="5432", 
@@ -113,11 +152,15 @@ def nation_position_mode():
                     database="postgres")
     
     cur = conn.cursor()
-    cur.execute("select nation_position, count(*) from fifa.players where nation_position !='SUB' and nation_position != 'RES' group by nation_position order by count(*) desc limit 3")
+    cur.execute("select nation_position, count(*) from fifa.players20 where nation_position !='SUB' and nation_position != 'RES' group by nation_position order by count(*) desc limit 3")
     
-    print("\n\n Formatted Results:")
+    # create empty list 
+    list = []
     for row in cur:
-        print (row)
+        list.append(row)
+        
+    # return list of most popular nation position that doesn't include substitute or reserve
+    return list
 
     cur.close()
     conn.close()
@@ -125,6 +168,8 @@ def nation_position_mode():
 nation_position_mode()
 
 # question 5
+# What is the most popular nationality for the players in the dataset?
+
 def nationality_mode():
     conn = psycopg2.connect(host="localhost", 
                     port="5432", 
@@ -133,13 +178,21 @@ def nationality_mode():
                     database="postgres")
     
     cur = conn.cursor()
-    cur.execute("select mode() within group (order by nationality) from fifa.players")
+    cur.execute("select nationality, count(nationality) as number_of_players from fifa.players20 group by nationality order by number_of_players desc limit 1;")
     
-    print("\n\n Formatted Results:")
+    # create empty list 
+    list = []
     for row in cur:
-        print (row)
+        list.append(row)
+        
+    # return list of most popular nationality
+    return list
 
     cur.close()
     conn.close()
 
 nationality_mode()
+
+
+
+
