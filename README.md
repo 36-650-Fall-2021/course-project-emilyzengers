@@ -225,7 +225,7 @@ alter table players20
 
 The port number for my postgres database is 5432. 
 
-After you import the data into the postgres tables, you can run the entire Python script in the "src" folder. For questions 1, 2, 3, you can input any value into the function's argument (for question 3, z must be greater than or equal to 5).<br /> 
+After you import the data into the postgres tables, you can run the entire Python script in the "src" folder. For questions 1, 2, 3, you can input an integer value into the function's argument (for question 3, z must be greater than or equal to 5).<br /> 
 
 Refer to the "test" folder to see what unit tests I ran for each of the the 5 Python functions I created. In the following paragraphs, I describe a summary of all the test scenarios I went through for each function.<br /> 
 
