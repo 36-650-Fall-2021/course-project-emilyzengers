@@ -12,8 +12,6 @@ In this repository, you'll work on your homework assignments and submit your com
 5. sonar-properties file is used for SonarQube statistics and you don't need to worry about editing it as well.
 6. You will find code design checklist under docs/ folder. You may use it as a reference for implementing best code practices.
 
-For several of the variables in players_20.csv and players_19.csv, I assume variable character type. Date of birth is documented as "date" data type. Anything that isn't varchar(n) or date is "integer" or "text" data type. 
-
 ### Fifa Table Infrastructure 
 Below is a partial summary of my Fifa table infrastructure. 
 ![image](https://user-images.githubusercontent.com/69126128/139150872-9087639f-98c6-48ba-976e-d44bdc56eac3.png)
@@ -30,7 +28,7 @@ Below, I will describe the steps to get my application running. The purpose of t
 5. What is the most popular nationality for the players in the dataset?
 
 #### Step 1
-To create the tables in SQL for Player20 and Player19, the following SQL queries were used.<br />
+To create the tables in SQL for Player20 and Player19, the following SQL queries were used. For several of the variables in players_20.csv and players_19.csv, I assume variable character type. Date of birth is documented as "date" data type. Anything that isn't varchar(n) or date is "integer" or "text" data type.<br />
 
 CREATE TABLE fifa.players20 (
 	sofifa_id integer,
