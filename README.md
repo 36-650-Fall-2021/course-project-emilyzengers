@@ -18,7 +18,11 @@ For several of the variables in players_20.csv, we assume variable character typ
 Below is a partial summary of my Fifa table infrastructure. 
 ![image](https://user-images.githubusercontent.com/69126128/139150872-9087639f-98c6-48ba-976e-d44bdc56eac3.png)
 
-With regards to creating the tables for Player20 and Player 19, the following sql queries were used.<br />
+### Running the Application 
+Below, I will describe the steps to get my application running. 
+
+#### Step 1
+To create the tables in SQL for Player20 and Player 19, the following SQL queries were used.<br />
 
 CREATE TABLE fifa.players20 (
 	sofifa_id integer,
@@ -208,7 +212,8 @@ CREATE TABLE fifa.players19 (
 	goalkeeping_reflexes text
 );
 
-After creating the tables, import the csv datas into the respective tables with the following queries. Make sure you set your permissions for these folders as "everyone". The csv files are in the "data" folder.<br />
+#### Step 2
+After creating the tables, import the CSV files into their respective tables with the following queries. Make sure you set your permissions for these folders as "everyone", or you may run into some permission errors and not be able to import the data into the SQL tables. The csv files are in the "data" folder labeled "players20.csv" and "players19.csv". The port number for my postgres database is 5432.<br />
 
 copy players 
 from 'C:/Users/emily/Documents/CMU MSP/stat 650/final project/data/players_20.csv'
@@ -223,18 +228,23 @@ If there are issues with the tables being in the wrong schema i.e. not in the fi
 alter table players20
 	set schema fifa;
 
-The port number for my postgres database is 5432. 
+#### Step 3
+After you import the data into the postgres tables, you can run the entire Python script (there's a .py and .ipynb files) in the "src" folder. I personally use Jupyter Notebook to run Python, so I would recommend running the .ipynb file, so you can see the notebook chunks for better readability. For questions 1, 2, 3, you can input an integer value into the function's argument (for question 3, z must be greater than or equal to 5).<br /> 
 
-After you import the data into the postgres tables, you can run the entire Python script in the "src" folder. For questions 1, 2, 3, you can input an integer value into the function's argument (for question 3, z must be greater than or equal to 5).<br /> 
-
+### Unit Testing 
 Refer to the "test" folder to see what unit tests I ran for each of the the 5 Python functions I created. In the following paragraphs, I describe a summary of all the test scenarios I went through for each function.<br /> 
 
+#### Function 1
 For function 1, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. I also assessed to see if the first element was the right element and made sure that the first element didn't return the wrong element. Lastly, I checked to make sure my error message inside my function was working properly.<br />
 
+#### Function 2
 For function 2, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. I also assessed to see if the first element was the right element and made sure that the first element didnt' return the second element. Additionally, I assessed that the ordering of the elements was correct. Lastly, I checked to make sure my error message inside my function was working properly.
 
+#### Function 3
 For function 3, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. Then I assessed to see whether the error messages inside my function were working correctly. I also checked to see that the elements that are returned were in the right order. 
 
+#### Function 4
 For function 4, I had two Python functions, so i developed 2 unit test functions that are essentially the same assertion statement. First, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. Lastly, I assessed that the first element was returning the right thing. 
 
+#### Function 5
 For function 5, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. Lastly, I assessed that the first element was returning the right thing. 
