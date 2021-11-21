@@ -213,7 +213,7 @@ CREATE TABLE fifa.players19 (
 );
 
 #### Step 2
-After creating the tables, import the CSV files into their respective tables with the following queries. Make sure you set your permissions for these folders as "everyone", or you may run into some permission errors and not be able to import the data into the SQL tables. The csv files are in the "data" folder labeled "players20.csv" and "players19.csv". The port number for my postgres database is 5432.<br />
+After creating the tables, import the CSV files into their respective tables with the following queries. You will need to download the CSV files that are in the "data" folder with the files "players_20.csv" and "players_19.csv". Make sure you set your permissions for the directory where your CSV files are as "everyone", or you may run into some permission errors and not be able to import the data into the SQL tables. The port number for my postgres database is 5432.<br />
 
 copy players 
 from 'C:/Users/emily/Documents/CMU MSP/stat 650/final project/data/players_20.csv'
@@ -229,7 +229,7 @@ alter table players20
 	set schema fifa;
 
 #### Step 3
-After you import the data into the postgres tables, you can run the entire Python script (there's a .py and .ipynb files) in the "src" folder. I personally use Jupyter Notebook to run Python, so I would recommend running the .ipynb file, so you can see the notebook chunks for better readability. For questions 1, 2, 3, you can input an integer value into the function's argument (for question 3, z must be greater than or equal to 5).<br /> 
+After you import the data into the postgres tables, you can run the entire Python script (there's a .py and .ipynb files) in the "src" folder. Make sure you have the Python modules "psycopg2" and "pandas" installed before runnning the script. If you don't have these modules installed, you can run "pip install pscycopg2" or "pip install pandas" in your terminal. I personally use Jupyter Notebook to run Python, so I would recommend running the .ipynb file, so you can see the notebook chunks for better readability. For questions 1, 2, 3, you can input an integer value into the function's argument (for question 3, z must be greater than or equal to 5).<br /> 
 
 ### Unit Testing 
 Refer to the "test" folder to see what unit tests I ran for each of the the 5 Python functions I created. In the following paragraphs, I describe a summary of all the test scenarios I went through for each function.<br /> 
