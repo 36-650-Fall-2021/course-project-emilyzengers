@@ -229,7 +229,7 @@ alter table players20
 	set schema fifa;
 
 #### Step 3
-After you import the data into the postgres tables, you can run the entire Python script (there is a "main.py" and "final project.ipynb" file) in the "src" folder. Make sure you have the Python modules "psycopg2" and "pandas" installed before runnning the script. If you don't have these modules installed, you can run "pip install pscycopg2" or "pip install pandas" in your terminal. I personally use Jupyter Notebook to run Python, so I would recommend running the .ipynb file, so you can see the notebook chunks for better readability. For questions 1, 2, 3, you can input an integer value into the function's argument (for question 3, z must be greater than or equal to 5).<br /> 
+After you import the data into the postgres tables, you can run the entire Python script (there is a "main.py" and "final project.ipynb" file) in the "src" folder. Make sure you have the Python modules "psycopg2" and "pandas" installed before runnning the script. If you don't have these modules installed, you can run "pip install pscycopg2" or "pip install pandas" in your terminal. I personally use Jupyter Notebook to run Python, so I would recommend running the .ipynb file, so you can see the notebook chunks for better readability. The .ipynb file has my unit test functions in the last chunk, but you don't have to run those. For questions 1, 2, 3, you can input an integer value into the function's argument (for question 3, z must be greater than or equal to 5).<br /> 
 
 ### Unit Testing 
 Refer to the "test" folder to see what unit tests I ran for each of the the 5 Python functions I created. In the following paragraphs, I describe a summary of all the test scenarios I went through for each function.<br /> 
