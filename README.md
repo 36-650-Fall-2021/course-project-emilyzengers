@@ -12,7 +12,7 @@ In this repository, you'll work on your homework assignments and submit your com
 5. sonar-properties file is used for SonarQube statistics and you don't need to worry about editing it as well.
 6. You will find code design checklist under docs/ folder. You may use it as a reference for implementing best code practices.
 
-For several of the variables in players_20.csv, we assume variable character type. Date of birth is documented as "date" data type. Anything that isn't varchar(n) or date is "integer" or "text" data type. 
+For several of the variables in players_20.csv and players_19.csv, I assume variable character type. Date of birth is documented as "date" data type. Anything that isn't varchar(n) or date is "integer" or "text" data type. 
 
 ### Fifa Table Infrastructure 
 Below is a partial summary of my Fifa table infrastructure. 
