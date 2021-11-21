@@ -22,7 +22,12 @@ Below is a partial summary of my Fifa table infrastructure.
 Link to videos of me walking through my code and my functions, and then demoing the functions: [Part 1](https://youtu.be/fLuIwZah_4M) and [Part 2](https://youtu.be/YIuUBn654gw)
 
 ### Running the Application 
-Below, I will describe the steps to get my application running. 
+Below, I will describe the steps to get my application running. The purpose of this application is to create Python functions that answer the following questions:
+1. List the x players who achieved highest improvement across all skillsets.
+2. What are the y clubs that have largest number of players with contracts ending in 2021?
+3. List the z clubs with largest number of players in the dataset where z >= 5.
+4. What is the most popular nation_position and team_position in the dataset? (list the most popular for each)
+5. What is the most popular nationality for the players in the dataset?
 
 #### Step 1
 To create the tables in SQL for Player20 and Player19, the following SQL queries were used.<br />
