@@ -71,7 +71,7 @@ def most_improvement(x):
     most_improved = df3.values.tolist()
     return most_improved
 
-most_improvement(1.2)
+most_improvement(5)
 
 
 # In[25]:
@@ -151,7 +151,7 @@ def num_clubs_lim(z):
     cur.close()
     conn.close()
 
-num_clubs_lim(0)
+num_clubs_lim(10)
 
 
 # In[89]:
@@ -181,7 +181,7 @@ def team_position_mode():
     cur.close()
     conn.close()
 
-team_position_mode()[0]
+team_position_mode()
 
 
 # In[55]:
