@@ -235,10 +235,10 @@ After you import the data into the postgres tables, you can run the entire Pytho
 Refer to the "test" folder to see what unit tests I ran for each of the the 5 Python functions I created. In the following paragraphs, I describe a summary of all the test scenarios I went through for each function.<br /> 
 
 #### Function 1
-For function 1, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. I also assessed to see if the first element was the right element and made sure that the first element didn't return the wrong element. Lastly, I checked to make sure my error message inside my function was working properly.<br />
+For function 1, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. I also assessed to see if the first element was the right element and made sure that the first element didn't return the wrong element. Lastly, I checked to make sure my error messages inside my function was working properly.<br />
 
 #### Function 2
-For function 2, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. I also assessed to see if the first element was the right element and made sure that the first element didnt' return the second element. Additionally, I assessed that the ordering of the elements was correct. Lastly, I checked to make sure my error message inside my function was working properly.
+For function 2, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. I also assessed to see if the first element was the right element and made sure that the first element didnt' return the second element. Additionally, I assessed that the ordering of the elements was correct. Lastly, I checked to make sure my error messages inside my function was working properly.
 
 #### Function 3
 For function 3, I assessed whether the function is returning anything. Then I assessed that the function is returning the right number of elements. Then I assessed to see whether the error messages inside my function were working correctly. I also checked to see that the elements that are returned were in the right order. 
