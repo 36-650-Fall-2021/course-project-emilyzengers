@@ -19,7 +19,7 @@ Below is a partial summary of my Fifa table infrastructure.
 ![image](https://user-images.githubusercontent.com/69126128/139150872-9087639f-98c6-48ba-976e-d44bdc56eac3.png)
 
 ### Video Walkthrough and Demo
-Link to a video of me walking through my code and my functions, and then demoing the functions: [Part 1](https://youtu.be/fLuIwZah_4M) and [Part 2](https://youtu.be/YIuUBn654gw)
+Link to videos of me walking through my code and my functions, and then demoing the functions: [Part 1](https://youtu.be/fLuIwZah_4M) and [Part 2](https://youtu.be/YIuUBn654gw)
 
 ### Running the Application 
 Below, I will describe the steps to get my application running. 
