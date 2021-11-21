@@ -22,7 +22,7 @@ Below is a partial summary of my Fifa table infrastructure.
 Below, I will describe the steps to get my application running. 
 
 #### Step 1
-To create the tables in SQL for Player20 and Player 19, the following SQL queries were used.<br />
+To create the tables in SQL for Player20 and Player19, the following SQL queries were used.<br />
 
 CREATE TABLE fifa.players20 (
 	sofifa_id integer,
